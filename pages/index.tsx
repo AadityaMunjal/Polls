@@ -1,10 +1,9 @@
 import React from "react";
-import AllPolls from "../components/AllPolls/AllPolls";
 
 const Home = () => {
   return (
     <>
-      <AllPolls />
+      <h1>Landing</h1>
     </>
   );
 };
