@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import usePoll from "../../hooks/usePoll";
 import PollUI from "../../components/Poll/PollUI";
-import { IPoll } from "../../types/common.types";
+import { DocumentData, IPoll } from "../../types/common.types";
 
 export default function Poll() {
   const router = useRouter();
   const { id } = router.query;
-  const [poll, setPoll] = useState<IPoll>();
+  const [poll, setPoll] = useState<DocumentData>();
 
   const { data } = usePoll(id);
 

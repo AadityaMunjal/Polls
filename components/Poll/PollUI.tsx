@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IPollOption } from "../../types/common.types";
 import PollOption from "./PollOption";
 import CustomButton from "../Button";
