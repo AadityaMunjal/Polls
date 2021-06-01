@@ -12,3 +12,5 @@ export interface IPoll {
 }
 
 export type DocumentData = firebase.firestore.DocumentData;
+export type DocRef =
+  firebase.firestore.DocumentReference<firebase.firestore.DocumentData>;
