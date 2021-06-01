@@ -12,8 +12,8 @@ interface Props {
 
 export default function PollUI({ name, options, docId }: Props) {
   const [poll, setPoll] = useState<IPoll>({
-    name: name,
-    options: options,
+    name,
+    options,
     id: docId,
   });
 
