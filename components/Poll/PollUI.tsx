@@ -1,11 +1,11 @@
 import React from "react";
 import { IPollOption } from "../../types/common.types";
-import PollOption from "./PollOption";
+import PollOptionController from "./PollOptionController";
 import CustomButton from "../Button";
 
 interface Props {
   name: string;
-  options: Array<IPollOption>;
+  options: IPollOption[];
 }
 
 export default function PollUI({ name, options }: Props) {
@@ -13,12 +13,12 @@ export default function PollUI({ name, options }: Props) {
     <>
       <div className="bg-gray pl-20">
         <div className="text-white text-4xl pb-20 pt-20">{name}</div>
-        {options.map((option) => {
-          return <PollOption votes={option.votes} name={option.name} />;
-        })}
+        <PollOptionController options={options} />
         <div className="flex text-white mt-10">
-          <CustomButton className="mr-10">Vote</CustomButton>
-          <CustomButton bgColor="purple" className="uppercase" disabled>
+          <CustomButton color="pred" className="mr-10">
+            Vote
+          </CustomButton>
+          <CustomButton color="purple" className="uppercase">
             Reveal results
           </CustomButton>
         </div>

@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import usePoll from "../../hooks/usePoll";
+import React from "react";
 import PollUI from "../../components/Poll/PollUI";
-import { DocumentData, IPoll } from "../../types/common.types";
+import { DocumentData } from "../../types/common.types";
+import { firestore } from "../../firebase";
 
-export default function Poll() {
-  const router = useRouter();
-  const { id } = router.query;
-  const [poll, setPoll] = useState<DocumentData>();
+export const getServerSideProps = async (context) => {
+  const id = context.params.id;
+  const res = await firestore.collection("polls").doc(id).get();
+  const data: DocumentData = res.data();
 
-  const { data } = usePoll(id);
+  return { props: { data } };
+};
 
-  useEffect(() => {
-    setPoll(data);
-  }, [data]);
-
-  console.log(data);
-
-  return <>{poll && <PollUI name={poll.name} options={poll.options} />}</>;
+export default function Poll({ data }) {
+  return (
+    <>
+      <PollUI name={data.name} options={data.options} />
+    </>
+  );
 }

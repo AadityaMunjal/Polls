@@ -1,10 +1,15 @@
 import React from "react";
 
+const buttonSchemas = {
+  pred: "bg-pred border-pred-light border-2",
+  purple: "bg-purple border-purple-light border-2",
+  gray: "bg-gray border-0",
+};
+
 interface Props {
   className?: string;
   children: React.ReactNode;
-  color?: string;
-  bgColor?: "gray" | "pred" | "purple";
+  color?: keyof typeof buttonSchemas;
   disabled?: boolean;
   onClick?: () => void;
 }
@@ -13,20 +18,15 @@ const CustomButton: React.FC<Props> = ({
   className,
   children,
   color,
-  bgColor,
   disabled,
   onClick,
 }) => {
   return (
     <button
-      className={`bg-${bgColor || "pred"} pr-5 pl-5 pt-3 pb-3 text-${
-        color || "white"
-      } rounded-lg border-${
-        bgColor || "pred"
-      }-light border-2 focus:outline-none ${
-        disabled ? "bg-gray-800" : ""
-      } ${className}`}
-      onClick={onClick}
+      className={`${buttonSchemas[color]} 
+      rounded-lg px-5 py-3 focus:outline-none
+      ${className}`}
+      onClick={!disabled ? onClick : () => {}}
     >
       <span>{children}</span>
     </button>
