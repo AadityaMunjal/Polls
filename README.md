@@ -1,3 +1,7 @@
+# Polls 
+
+[![codecov](https://codecov.io/gh/AadityaMunjal/Polls/branch/master/graph/badge.svg?token=O7XFDIIT56)](https://codecov.io/gh/AadityaMunjal/Polls)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
